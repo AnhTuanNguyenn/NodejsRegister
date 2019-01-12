@@ -1,0 +1,74 @@
+extends layout
+
+block content
+   .container
+      
+      h2.text-center.top-buffer Coaching's GlobeDreamers
+      form.form-horizontal(role="form", method="post")
+        .form-group
+          .alert.alert-danger(role='alert', id="msgDiv")
+
+        .form-group
+          label.col-sm-3.control-label(for="fullname") 
+           strong Nom&Prénom
+          .col-sm-9
+            input#fullname.form-control(type="text" placeholder="Nom&Prénom" autofocus="" value="")
+        .form-group
+          label.col-sm-3.control-label(for="email") 
+           strong Email
+          .col-sm-9
+            input#email.form-control(type="email" placeholder="Email")
+        .form-group
+          label.col-sm-6.control-label(for="addrdess") 
+           strong Address
+          .col-sm-9
+            input#address.form-control(type="text" placeholder="Address Complet")
+        .form-group
+          label.col-sm-6.control-label(for="tel") 
+           strong Numéro Télephone
+          .col-sm-9
+            input#tel.form-control(type="number" placeholder="Numéro de Tel")
+        .form-group
+          label.col-sm-9.control-label(for="dob") 
+           strong Date de naissance
+          .col-sm-9
+            input#dob.form-control(type="date")
+        .form-group
+          label.col-sm-6.control-label(for="job") 
+           strong Métier Professionelle
+          .col-sm-9
+            select#job.form-control
+              option(value='') Veuillez choisir votre métier actuelle
+              option Étudiant
+              option En activité professionelle	
+              option Travailleur indépendat
+              option Retraité
+        .form-group
+          label.col-sm-9(for="cv") 
+           strong Votre CV (optionel)
+          .col-sm-9.form-field
+          form-field-file#cv
+            input#cv(type='file', name='cv' style="margin-left:15px;")
+        .form-group
+          label.control-label.col-sm-3 
+           strong Genre
+          .col-sm-6
+            .row
+              .col-sm-6
+                label.radio-inline
+                  input#femaleRadio(name="gender" type="radio" value="Femme")
+                  | &nbsp;Femme
+              .col-sm-6
+                label.radio-inline
+                  input#maleRadio(name="gender" type="radio" value="Homme")
+                  | &nbsp;Homme              
+        .form-group
+          .col-sm-9.col-sm-offset-3
+            .checkbox
+              label
+                input#terms(type="checkbox" value="yes" name="terms")
+                | &nbsp;J'accepts les&nbsp;
+                a(href="#") terms
+        .form-group
+          .col-sm-9.col-sm-offset-3
+            button#register.btn.btn-primary.btn-block(type="e" value="redirect") Inscription
