@@ -1,21 +1,16 @@
 $(function () {
 
     $("#register").on('click', function (event) {
-        var data = new FormData();
         event.preventDefault();
-        data.append('fullName', 'qdqwdqw');
-        data.append('email', ($("#email").val()));
-        data.append('address', ($("#address").val()));
-        data.append('dob', ($("#dob").val()));
-        data.append('job', ($("#job").val()));
-        data.append('gender', ($('input[name="gender"]:checked').val()));
-        data.append('tel', ($("#tel").val()));
-        data.append('check', ($('input[name="terms"]:checked').val()));
-        data.append('pdf', $('input[type=file]')[0].files[0]);
-        // Display the key/value pairs
-        for (var pair of data.entries()) {
-            console.log(pair);
-        }
+        var fullname = $("#fullname").val();
+        var email = $("#email").val();
+        var address = $("#address").val();
+        var dob = $("#dob").val();
+        var job = $("#job").val();
+        var gender = $('input[name="gender"]:checked').val();
+        var tel = $("#tel").val();
+        var terms = $('input[name="terms"]:checked').val();
+        
         if (!fullname || !email || !address || !dob || !job || !gender || !tel) {
             $("#msgDiv").show().html("Tous les champs sont requis.");
         } else if (!terms) {
@@ -26,11 +21,17 @@ $(function () {
             $.ajax({
                 url: "/register",
                 method: "POST",
-                data: data,
-                processData: false,
-                contentType: false,
-                cache: false,
-                dataType: 'json'
+                data: {
+                    full_name: fullname,
+                    email: email,
+                    address: address,
+                    dob: dob,
+                    job: job,
+                    gender: gender,
+                    tel: tel,
+                    terms: terms,
+                    cv: cv
+                }
             }).done(function (data) {
 
                 if (data) {
@@ -50,6 +51,5 @@ $(function () {
                 }
             });
         }
-
     });
 });
