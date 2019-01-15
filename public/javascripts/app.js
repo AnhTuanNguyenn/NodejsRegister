@@ -20,6 +20,8 @@ $(function () {
             $("#msgDiv").show().html("Veuillez accepter les termes et conditions.");
         } else if (!tel) {
             $("#msgDiv").show().html("Veuillez saisir votre numéro portable.");
+        }else if (!ques1&&ques2&&ques3){
+            $("mesgDiv").show().html("Veuillez répondre les question");
         } else {
             $.ajax({
                 url: "/register",
