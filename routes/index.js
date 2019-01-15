@@ -71,6 +71,10 @@ router.post('/register', [
     min: 1
   }),
 
+  check('ques1', 'Veuillez répondre les question').isLength({min:2}),
+  check('ques2', 'Veuillez répondre les question').isLength({min:2}),
+  check('ques3', 'Veuillez répondre les question').isLength({min:2}),
+
   check('terms', 'Veuillez accepter nos termes et conditions').equals('yes'),
 
 ], async function (req, res, next) {
@@ -95,6 +99,9 @@ console.log(convertCV);
     job: req.body.job,
     gender: req.body.gender,
     tel: req.body.tel,
+    ques1: req.body.ques1,
+    ques2: req.body.ques2,
+    ques3: req.body.ques3,
     cv: convertCV
    
   };

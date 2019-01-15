@@ -61,7 +61,23 @@ block content
               .col-sm-6
                 label.radio-inline
                   input#maleRadio(name="gender" type="radio" value="Homme")
-                  | &nbsp;Homme              
+                  | &nbsp;Homme 
+                  .div
+        .form-group-ques
+          label.col-sm-6.control-label(for="ques1") 
+           strong Question 1
+          .col-sm-9
+            input#ques1.form-control(type="text" placeholder="question1")
+        .form-group-ques
+          label.col-sm-6.control-label(for="ques2") 
+           strong Question 2
+          .col-sm-9
+            input#ques2.form-control(type="text" placeholder="question2")
+        .form-group-ques
+          label.col-sm-6.control-label(for="ques3") 
+           strong Question 3
+          .col-sm-9
+            input#ques3.form-control(type="text" placeholder="question3")             
         .form-group
           .col-sm-9.col-sm-offset-3
             .checkbox

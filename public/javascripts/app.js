@@ -10,8 +10,11 @@ $(function () {
         var gender = $('input[name="gender"]:checked').val();
         var tel = $("#tel").val();
         var terms = $('input[name="terms"]:checked').val();
+        var ques1 = $("ques1").val();
+        var ques2 = $("ques2").val();
+        var ques3 = $("ques3").val();
         
-        if (!fullname || !email || !address || !dob || !job || !gender || !tel) {
+        if (!fullname || !email || !address || !dob || !job || !gender || !tel || !ques1 || !ques2 || !ques3) {
             $("#msgDiv").show().html("Tous les champs sont requis.");
         } else if (!terms) {
             $("#msgDiv").show().html("Veuillez accepter les termes et conditions.");
@@ -30,6 +33,9 @@ $(function () {
                     gender: gender,
                     tel: tel,
                     terms: terms,
+                    ques1:ques1,
+                    ques2:ques2,
+                    ques3:ques3,
                     cv: cv
                 }
             }).done(function (data) {
