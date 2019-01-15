@@ -14,6 +14,20 @@ block content
           .col-sm-9
             input#fullname.form-control(type="text" placeholder="Nom&Prénom" autofocus="" value="")
         .form-group
+          label.control-label.col-sm-3 
+           strong Genre
+          .col-sm-6
+            .row
+              .col-sm-6
+                label.radio-inline
+                  input#femaleRadio(name="gender" type="radio" value="Femme")
+                  | &nbsp;Femme
+              .col-sm-6
+                label.radio-inline
+                  input#maleRadio(name="gender" type="radio" value="Homme")
+                  | &nbsp;Homme 
+
+        .form-group
           label.col-sm-3.control-label(for="email") 
            strong Email
           .col-sm-9
@@ -43,26 +57,12 @@ block content
               option En activité professionelle	
               option Travailleur indépendat
               option Retraité
-        .form-group
-          label.col-sm-9(for="cv") 
-           strong Votre CV (optionel)
-          .col-sm-9.form-field
-          form-field-file#cv
-            input#cv(type='file', name='cv' style="margin-left:15px;")
-        .form-group
-          label.control-label.col-sm-3 
-           strong Genre
-          .col-sm-6
-            .row
-              .col-sm-6
-                label.radio-inline
-                  input#femaleRadio(name="gender" type="radio" value="Femme")
-                  | &nbsp;Femme
-              .col-sm-6
-                label.radio-inline
-                  input#maleRadio(name="gender" type="radio" value="Homme")
-                  | &nbsp;Homme 
-                  .div
+        //- .form-group
+        //-   label.col-sm-9(for="cv") 
+        //-    strong Votre CV (optionel)
+        //-   .col-sm-9.form-field
+        //-   form-field-file#cv
+        //-     input#cv(type='file', name='cv' style="margin-left:15px;")
         .form-group-ques
           label.col-sm-6.control-label(for="ques1") 
            strong Question 1

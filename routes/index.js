@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var User = mongoose.model('Users');
-const pdf = require('pdf-parse');
+// const pdf = require('pdf-parse');
 
-const { google } = require('googleapis');
-const fs = require('fs');
-const config = require('../config');
+// const { google } = require('googleapis');
+// const fs = require('fs');
+// const config = require('../config');
 // var crypto    = require('crypto'), hmac, signature;
 const {
   check,
@@ -71,9 +71,18 @@ router.post('/register', [
     min: 1
   }),
 
-  check('ques1', 'Veuillez répondre les question').isLength({min:2}),
-  check('ques2', 'Veuillez répondre les question').isLength({min:2}),
-  check('ques3', 'Veuillez répondre les question').isLength({min:2}),
+  check('ques1', 'Veuillez répondre les question')
+  .isLength({
+    min:2
+  }),
+  check('ques2', 'Veuillez répondre les question')
+  .isLength({
+    min:2
+  }),
+  check('ques3', 'Veuillez répondre les question')
+  .isLength({
+    min:2
+  }),
 
   check('terms', 'Veuillez accepter nos termes et conditions').equals('yes'),
 
@@ -89,8 +98,8 @@ router.post('/register', [
     });
 
   }
-var convertCV = await main(req.body.cv);
-console.log(convertCV);
+// var convertCV = await main(req.body.cv);
+// console.log(convertCV);
   var document = {
     full_name: req.body.full_name,
     email: req.body.email,
@@ -101,8 +110,8 @@ console.log(convertCV);
     tel: req.body.tel,
     ques1: req.body.ques1,
     ques2: req.body.ques2,
-    ques3: req.body.ques3,
-    cv: convertCV
+    ques3: req.body.ques3
+    // cv: convertCV
    
   };
 
@@ -116,7 +125,7 @@ console.log(convertCV);
       message: "Données sauvegardées succès.",
       status: "success"
     })
-    // res.render('./success.js', {title:Success});
+    res.render('./success.js', {title:Success});
   });
 });
 
@@ -138,29 +147,29 @@ function findUserByEmail(email) {
 
 
 
-var oauth2Client = new google.auth.OAuth2(config.YOUR_CLIENT_ID, config.YOUR_CLIENT_SECRET, config.YOUR_REDIRECT_URL);
-oauth2Client.credentials = {
-    refresh_token: config.REFRESH_TOKEN
-};
+// var oauth2Client = new google.auth.OAuth2(config.YOUR_CLIENT_ID, config.YOUR_CLIENT_SECRET, config.YOUR_REDIRECT_URL);
+// oauth2Client.credentials = {
+//     refresh_token: config.REFRESH_TOKEN
+// };
 
-const drive = google.drive({
-    version: 'v3',
-    auth: oauth2Client
-});
-async function main(cv) {
-    const res = await drive.files.create({
-        requestBody: {
-            name: cv,
-            mimeType: 'application/pdf'
-        },
-        media: {
-            mimeType: 'application/pdf',
-            body: fs.createReadStream(cv)
-        }
-    })
-    console.log(res.data.id);
-    return res.data.id;
-};
+// const drive = google.drive({
+//     version: 'v3',
+//     auth: oauth2Client
+// });
+// async function main(cv) {
+//     const res = await drive.files.create({
+//         requestBody: {
+//             name: cv,
+//             mimeType: 'application/pdf'
+//         },
+//         media: {
+//             mimeType: 'application/pdf',
+//             body: fs.createReadStream(cv)
+//         }
+//     })
+//     console.log(res.data.id);
+//     return res.data.id;
+// };
 
 
 

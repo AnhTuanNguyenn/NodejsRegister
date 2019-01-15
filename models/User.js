@@ -50,19 +50,19 @@ var userSchema = new Schema({
       type: String,
       required: [true, 'Votre address est obligatoire']
     },
-    ques1:{
-        type: String, required:[true, 'Veuillez reponds les question']
+    ques1: {
+        type: String, required: [true, 'Veuillez reponds les question']
     },
-    ques2:{
-      type: String, required:[true, 'Veuillez reponds les question']
-     },
-     ques3:{
-      type: String, required:[true, 'Veuillez reponds les question']
+    ques2: {
+      type: String, required: [true, 'Veuillez reponds les question']
+    },
+     ques3: {
+      type: String, required: [true, 'Veuillez reponds les question']
   },
 
-    cv: {
-      type: String
-    }
+    // cv: {
+    //   type: String
+    // }
   } 
 );
 
