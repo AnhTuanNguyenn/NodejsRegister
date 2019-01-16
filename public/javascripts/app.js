@@ -13,8 +13,11 @@ $(function () {
         var ques1 = $("#ques1").val();
         var ques2 = $("#ques2").val();
         var ques3 = $("#ques3").val();
+        var ques4 = $("#ques4").val();
+        var ques5= $("#ques5").val();
+
         
-        if (!fullname || !email || !address || !dob || !job || !gender || !tel || !ques1 || !ques2) {
+        if (!fullname || !email || !address || !dob || !job || !gender || !tel || !ques1 || !ques2|| !ques3|| !ques4|| !ques5) {
             $("#msgDiv").show().html("Tous les champs sont requis.");
         } else if (!terms) {
             $("#msgDiv").show().html("Veuillez accepter les termes et conditions.");
@@ -37,11 +40,12 @@ $(function () {
                     terms: terms,
                     ques1: ques1,
                     ques2: ques2,
-                    ques3: ques3
+                    ques3: ques3,
+                    ques4: ques4,
+                    ques5: ques5
                     // cv: cv,
                 },
             }).done(function (data) {
-
                 if (data) {
                     if (data.status == 'error') {
 
@@ -53,11 +57,16 @@ $(function () {
                         errors = errors + '</ul>';
                         $("#msgDiv").html(errors).show();
                     } else {
-                        $("#msgDiv").removeClass('alert-danger').addClass('alert-success').html(data.message).show();
-                        return res.redirect('./success');
+                        $("#msgDiv").removeClass('alert-danger').addClass('alert-success').html(data.message).show()
+                        a();
                     }
                 }
             });
         }
     });
+    function a(){
+    setTimeout(function() {
+        top.location.href= '/success';
+      }, 3000);
+    }
 });

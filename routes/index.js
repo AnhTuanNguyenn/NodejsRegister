@@ -83,6 +83,14 @@ router.post('/register', [
   .isLength({
     min:2
   }),
+  check('ques4', 'Veuillez répondre les question')
+  .isLength({
+    min:2
+  }),
+  check('ques5', 'Veuillez répondre les question')
+  .isLength({
+    min:2
+  }),
 
   check('terms', 'Veuillez accepter nos termes et conditions').equals('yes'),
 
@@ -110,7 +118,9 @@ router.post('/register', [
     tel: req.body.tel,
     ques1: req.body.ques1,
     ques2: req.body.ques2,
-    ques3: req.body.ques3
+    ques3: req.body.ques3,
+    ques4: req.body.ques4,
+    ques5: req.body.ques5
     // cv: convertCV
    
   };
@@ -123,9 +133,8 @@ router.post('/register', [
     }
     res.json({
       message: "Données sauvegardées succès.",
-      status: "success"
+      status: "success",
     })
-    res.render('./success.js', {title:Success});
   });
 });
 
@@ -144,6 +153,12 @@ function findUserByEmail(email) {
     })
   }
 }
+router.get('/success', function (req, res, next) {
+  res.render('../views/success.pug', {
+    title: 'Coaching Globedreamers'
+  });
+})
+
 
 
 

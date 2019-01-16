@@ -58,7 +58,14 @@ var userSchema = new Schema({
     },
      ques3: {
       type: String, required: [true, 'Veuillez reponds les question']
-  },
+    },
+     ques4: {
+   type: String, required: [true, 'Veuillez reponds les question']
+    },
+  ques5: {
+   type: String, required: [true, 'Veuillez reponds les question']
+},
+
 
     // cv: {
     //   type: String
